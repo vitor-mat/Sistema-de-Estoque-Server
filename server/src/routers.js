@@ -20,6 +20,16 @@ routers.get('/produtos', async (req, res) => {
     res.json(allProducts)
 })
 
+routers.delete('/del/:id', async(req, res) => {
+
+    await produtos.destroy({
+        where: {
+          id: req.params.id
+        }
+      });
+
+    res.send(`Deletado com sucesso!! / id: ${req.params.id}`)
+})
 
 module.exports = {
     routers,
