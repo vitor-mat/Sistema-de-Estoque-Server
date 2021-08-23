@@ -15,6 +15,11 @@ routers.post('/add', async function saveData(req, res){
 
 })
 
+routers.get('/produtos', async (req, res) => {
+    const allProducts = await produtos.findAll()
+    res.json(allProducts)
+})
+
 
 module.exports = {
     routers,
