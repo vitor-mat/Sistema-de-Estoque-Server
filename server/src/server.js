@@ -14,19 +14,13 @@
 }
 )()
 
-const { urlencoded } = require("express");
 //Configuração do server
 
-const express = require('express');
-const app = express();
+const { app, routers } = require("./routers")
 const port = 3001;
 const cors = require("cors");
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 app.use(cors())
-
-const routers = require("./routers");
 
 app.use(routers);
 

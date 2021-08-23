@@ -1,9 +1,22 @@
-const routes = require('express').Router();
+const routers = require('express').Router();
 
-routes.get('/', async (req, res) => {
-    res.send("hellow world");
-    sequelize.close()
+const express = require('express');
+const app = express();
+
+const db = require("./db");
+
+const produtos = require("./model/produtos");
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+routers.post('/add', async function saveData(req, res){
+    const produto1 = await produtos.create({nome: req.body.nome, preco: req.body.preco})
+
 })
 
 
-module.exports = routes;
+module.exports = {
+    routers,
+    app
+};
