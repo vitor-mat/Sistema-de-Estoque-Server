@@ -31,6 +31,21 @@ routers.delete('/del/:id', async(req, res) => {
     res.send(`Deletado com sucesso!! / id: ${req.params.id}`)
 })
 
+routers.put("/update/:id", async(req, res) => {
+
+    await produtos.update({
+        nome: req.body.nome,
+        preco: req.body.preco
+    },{
+        where: {
+            id: req.params.id
+        }
+    })
+
+    res.send("Editado com sucesso")
+
+})
+
 module.exports = {
     routers,
     app
