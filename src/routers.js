@@ -13,6 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 routers.post('/add', async function saveData(req, res){
     const produto1 = await produtos.create({nome: req.body.nome, preco: req.body.preco})
 
+    res.send("Cadastrado com sucesso");
 })
 
 routers.get('/produtos', async (req, res) => {
