@@ -24,6 +24,6 @@ app.use(cors())
 
 app.use(routers);
 
-app.listen(port, () => {
+app.listen(process.env.PORT || port, () => {
     console.log("Server running!")
 })
